@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | CloudZilla</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <div id="event-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <h2 style="color: #4f46e5; margin-bottom: 1rem;">🚀 OUR BIGGEST EVENT YET 🚀</h2>
+            <p style="font-size: 1.1rem; line-height: 1.6; color: #374151; margin-bottom: 1.5rem;">
+                <strong>Thinkathon 2026</strong> is fast approaching. <br>
+                Get ready to test your limits.
+            </p>
+            <div style="background: rgba(79, 70, 229, 0.1); color: #4f46e5; padding: 10px; border-radius: 8px; font-weight: 700;">
+                ✨ REGISTRATIONS OPEN SOON
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span>CLOUDZILLA</span>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-tile active">Home</a></li>
+            <li><a href="event.html" class="nav-tile">Event</a></li>
+            <li><a href="team.html" class="nav-tile">Team</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>WE ARE <span class="typewriter-text"></span><span class="cursor"></span></h1>
+            <p style="color: #6b7280; font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; line-height: 1.6;">
+                Mastering the cloud, one deploy at a time. The premier tech club at Nitte Meenakshi Institute of Technology.
+            </p>
+            <div>
+                <a href="event.html" class="glow-button">VIEW UPCOMING EVENT DETAILS</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="glass-panel" style="text-align: center; max-width: 900px; margin: 0 auto;">
+            <h2>ABOUT US</h2>
+            <p style="color: #4b5563; line-height: 1.8; font-size: 1.05rem;">
+                CloudZilla is more than just a club; it's a launchpad for future cloud architects and DevOps engineers. We bridge the gap between academic theory and industry reality through hands-on workshops, 24-hour hackathons, and open-source contributions.
+            </p>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h2>THINKATHON STARTS IN</h2>
+        </div>
+        <div class="countdown-container">
+            <div class="countdown-box"><span id="days" class="time">00</span><span class="label">DAYS</span></div>
+            <div class="countdown-box"><span id="hours" class="time">00</span><span class="label">HRS</span></div>
+            <div class="countdown-box"><span id="minutes" class="time">00</span><span class="label">MIN</span></div>
+            <div class="countdown-box"><span id="seconds" class="time">00</span><span class="label">SEC</span></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>THE DOMAINS</h2>
+        <div class="domains-grid">
+            <div class="domain-card">
+                <div class="icon"><i class="fa-solid fa-code"></i></div>
+                <h3>TECH</h3>
+                <p>The core engine. We build cloud architectures, host hackathons, and solve complex technical problems.</p>
+            </div>
+            <div class="domain-card">
+                <div class="icon"><i class="fa-solid fa-pen-nib"></i></div>
+                <h3>DESIGN</h3>
+                <p>Crafting visual identity. From UI/UX prototypes to event posters, we make tech look beautiful.</p>
+            </div>
+            <div class="domain-card">
+                <div class="icon"><i class="fa-brands fa-instagram"></i></div>
+                <h3>SOCIAL MEDIA</h3>
+                <p>The voice of the community. We manage reels, posts, and digital engagement strategies.</p>
+            </div>
+            <div class="domain-card">
+                <div class="icon"><i class="fa-solid fa-bullhorn"></i></div>
+                <h3>PR & MARKETING</h3>
+                <p>Connecting people. We handle outreach, sponsorships, and spreading the word about events.</p>
+            </div>
+            <div class="domain-card">
+                <div class="icon"><i class="fa-solid fa-file-lines"></i></div>
+                <h3>CONTENT</h3>
+                <p>Preserving knowledge. We write technical blogs, event reports, and maintain the archives.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="gdg-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 1rem;">
+                    <span style="font-size: 1.2rem; background: linear-gradient(135deg, #6366f1, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;">CLOUDZILLA</span>
+                </div>
+                <p>Nitte Meenakshi Institute of Technology,<br>Bengaluru, Karnataka 560064</p>
+            </div>
+            <div class="footer-col">
+                <h4>QUICK LINKS</h4>
+                <a href="index.html">Home</a>
+                <a href="event.html">Event</a>
+                <a href="team.html">Team</a>
+            </div>
+            <div class="footer-col">
+                <h4>CONNECT</h4>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CloudZilla NMIT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
