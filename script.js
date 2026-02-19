@@ -1,22 +1,60 @@
-/* Mobile Menu Toggle */
+/* =========================================
+   1. THEME TOGGLE (Slider Logic)
+   ========================================= */
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const checkboxes = document.querySelectorAll('#theme-toggle-checkbox');
+    
+    if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        checkboxes.forEach(cb => cb.checked = true);
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+        checkboxes.forEach(cb => cb.checked = false);
+    }
+}
+
+function toggleTheme(event) {
+    const isChecked = event.target.checked;
+    const checkboxes = document.querySelectorAll('#theme-toggle-checkbox');
+    
+    // Sync all checkboxes
+    checkboxes.forEach(cb => cb.checked = isChecked);
+    
+    if (isChecked) {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Run on page load
+initializeTheme();
+
+/* =========================================
+   2. MOBILE MENU
+   ========================================= */
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
+    const hamburgerIcon = document.querySelector('.hamburger i');
     navLinks.classList.toggle('active');
+    
+    if (navLinks.classList.contains('active')) {
+        hamburgerIcon.classList.remove('fa-bars');
+        hamburgerIcon.classList.add('fa-xmark');
+        hamburgerIcon.style.transform = 'rotate(90deg)';
+    } else {
+        hamburgerIcon.classList.remove('fa-xmark');
+        hamburgerIcon.classList.add('fa-bars');
+        hamburgerIcon.style.transform = 'rotate(0deg)';
+    }
 }
 
-/* Modal Logic */
-window.addEventListener('load', function() {
-    // Show modal after 1 second delay for smooth effect
-    setTimeout(function() {
-        document.getElementById('event-modal').style.display = 'flex';
-    }, 1000);
-});
-
-function closeModal() {
-    document.getElementById('event-modal').style.display = 'none';
-}
-
-/* Typewriter Effect */
+/* =========================================
+   3. TYPEWRITER EFFECT
+   ========================================= */
 const words = ["CLOUDZILLA", "THINKERS", "ARCHITECTS", "DESIGNERS"];
 let i = 0;
 function typeWriter() {
@@ -49,8 +87,22 @@ function typeWriter() {
 }
 document.addEventListener("DOMContentLoaded", typeWriter);
 
-/* Countdown to Feb 27, 2026 */
-const countDownDate = new Date("Feb 27, 2026 10:00:00").getTime();
+/* =========================================
+   4. MODAL & COUNTDOWN
+   ========================================= */
+window.addEventListener('load', function() {
+    if(document.getElementById('event-modal')) {
+        setTimeout(function() {
+            document.getElementById('event-modal').style.display = 'flex';
+        }, 1000);
+    }
+});
+
+function closeModal() {
+    document.getElementById('event-modal').style.display = 'none';
+}
+
+const countDownDate = new Date("Feb 28, 2026 10:00:00").getTime();
 if(document.querySelector(".countdown-container") || document.getElementById("days")) {
     setInterval(function() {
         const now = new Date().getTime();
@@ -64,4 +116,19 @@ if(document.querySelector(".countdown-container") || document.getElementById("da
             }
         }
     }, 1000);
+}
+
+/* =========================================
+   5. MOBILE SCROLL FOCUS
+   ========================================= */
+if (window.innerWidth < 768) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('mobile-focus');
+            else entry.target.classList.remove('mobile-focus');
+        });
+    }, { root: null, rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+
+    const cards = document.querySelectorAll('.glow-card, .schedule-card');
+    cards.forEach(card => observer.observe(card));
 }

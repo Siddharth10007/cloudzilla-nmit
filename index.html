@@ -3,44 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudZilla NMIT</title>
+    <title>Home | CloudZilla</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="CloudZilla Logo.png">
 </head>
 <body>
     
     <div id="event-modal" class="modal-overlay">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal()">&times;</button>
-            <h2 style="color: #4f46e5; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;"> OUR BIGGEST EVENT YET</h2>
-            <p style="font-size: 1.1rem; line-height: 1.6; color: #4b5563; margin-bottom: 1.5rem;">
+            <h2 style="color: var(--accent-color); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">🚀 BIGGEST EVENT YET</h2>
+            <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;">
                 <strong>Thinkathon 2026</strong> is on the horizon. <br>
                 Gear up for our biggest event yet!
             </p>
-            <div style="background: #eff6ff; color: #4f46e5; padding: 12px; border-radius: 8px; font-weight: 700; border: 1px solid #bfdbfe;">
-                ✨ REGISTRATIONS OPEN SOON
+            <div style="background: rgba(96, 165, 250, 0.1); color: var(--accent-color); padding: 12px; border-radius: 8px; font-weight: 700; border: 1px solid rgba(96, 165, 250, 0.3);">
+                ✨ REGISTRATIONS OPENING SOON
             </div>
         </div>
     </div>
 
     <nav class="navbar">
-        <div class="logo">
-            <img src="CloudZilla Logo.png" class="logo-img" alt="CloudZilla Logo">
+        <a href="index.html" class="logo">
+            <img src="CloudZilla Logo.png" alt="CloudZilla Logo" width="40" height="40">
             <span>CLOUDZILLA</span>
-        </div>
+        </a>
+        
         <div class="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+        
         <ul class="nav-links">
             <li><a href="index.html" class="nav-tile active">Home</a></li>
             <li><a href="event.html" class="nav-tile">Event</a></li>
             <li><a href="team.html" class="nav-tile">Team</a></li>
+            <li>
+                <label class="theme-switch" title="Toggle Theme">
+                    <input type="checkbox" id="theme-toggle-checkbox" onchange="toggleTheme(event)">
+                    <span class="slider">
+                        <i class="fa-solid fa-moon icon-moon"></i>
+                        <i class="fa-solid fa-sun icon-sun"></i>
+                    </span>
+                </label>
+            </li>
         </ul>
     </nav>
 
     <header class="hero">
+        <div class="heading-blob" style="width: 500px; height: 500px; opacity: 0.2;"></div>
         <div class="hero-content">
             <h1>WE ARE <span class="typewriter-text"></span><span class="cursor"></span></h1>
-            <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; line-height: 1.6;">
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; line-height: 1.6;">
                 Mastering the cloud, one deploy at a time. The premier tech community at Nitte Meenakshi Institute of Technology.
             </p>
             <div>
@@ -50,9 +61,10 @@
     </header>
 
     <section class="section">
+        <div class="heading-blob"></div>
         <div class="glass-panel" style="text-align: center; max-width: 900px; margin: 0 auto;">
             <h2>ABOUT US</h2>
-            <p style="color: #475569; line-height: 1.8; font-size: 1.05rem;">
+            <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem;">
                 CloudZilla is more than just a club; it's a launchpad for future cloud architects and DevOps engineers. We bridge the gap between academic theory and industry reality through hands-on workshops, 24-hour hackathons, and open-source contributions.
             </p>
         </div>
@@ -71,29 +83,30 @@
     </section>
 
     <section class="section">
+        <div class="heading-blob" style="background: linear-gradient(135deg, #10b981, #3b82f6);"></div>
         <h2>THE DOMAINS</h2>
         <div class="domains-grid">
-            <div class="domain-card">
+            <div class="glow-card" onclick="window.location.href='team.html'">
                 <div class="icon"><i class="fa-solid fa-code"></i></div>
                 <h3>TECH</h3>
                 <p>The core engine. We build cloud architectures, host hackathons, and solve complex technical problems.</p>
             </div>
-            <div class="domain-card">
+            <div class="glow-card" onclick="window.location.href='team.html'">
                 <div class="icon"><i class="fa-solid fa-pen-nib"></i></div>
                 <h3>DESIGN</h3>
                 <p>Crafting visual identity. From UI/UX prototypes to event posters, we make tech look beautiful.</p>
             </div>
-            <div class="domain-card">
+            <div class="glow-card" onclick="window.location.href='team.html'">
                 <div class="icon"><i class="fa-brands fa-instagram"></i></div>
                 <h3>SOCIAL MEDIA</h3>
                 <p>The voice of the community. We manage reels, posts, and digital engagement strategies.</p>
             </div>
-            <div class="domain-card">
+            <div class="glow-card" onclick="window.location.href='team.html'">
                 <div class="icon"><i class="fa-solid fa-bullhorn"></i></div>
                 <h3>PR & MARKETING</h3>
                 <p>Connecting people. We handle outreach, sponsorships, and spreading the word about events.</p>
             </div>
-            <div class="domain-card">
+            <div class="glow-card" onclick="window.location.href='team.html'">
                 <div class="icon"><i class="fa-solid fa-file-lines"></i></div>
                 <h3>CONTENT</h3>
                 <p>Preserving knowledge. We write technical blogs, event reports, and maintain the archives.</p>
@@ -101,11 +114,28 @@
         </div>
     </section>
 
+    <section class="section" style="padding-bottom: 6rem;">
+        <div class="heading-blob" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);"></div>
+        <h2>JOIN OUR COMMUNITY</h2>
+        <div class="community-grid">
+            <a href="https://www.instagram.com/cloudzilla_nmit/" target="_blank" class="community-card">
+                <i class="fa-brands fa-instagram" style="color: #ec4899;"></i>
+                <h3>Instagram</h3>
+                <p>Follow for updates, behind-the-scenes, and event highlights.</p>
+            </a>
+            <a href="https://www.linkedin.com/company/cloudzilla-nmit/" target="_blank" class="community-card">
+                <i class="fa-brands fa-linkedin" style="color: #0ea5e9;"></i>
+                <h3>LinkedIn</h3>
+                <p>Connect with our professional network and alumni.</p>
+            </a>
+        </div>
+    </section>
+
     <footer class="gdg-footer">
         <div class="footer-content">
             <div class="footer-col">
                 <div class="logo" style="margin-bottom: 1rem;">
-                    <span style="font-size: 1.2rem; font-family: 'Orbitron', sans-serif; font-weight: 800; color: #1e293b;">CLOUDZILLA</span>
+                    <span style="font-size: 1.2rem; font-family: 'Orbitron', sans-serif; font-weight: 800;">CLOUDZILLA</span>
                 </div>
                 <p>Nitte Meenakshi Institute of Technology,<br>Bengaluru, Karnataka 560064</p>
             </div>
