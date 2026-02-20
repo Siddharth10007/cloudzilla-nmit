@@ -35,13 +35,19 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* FIX: Strict max-width and hidden horizontal overflow for mobile */
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   color: var(--text-dark);
   background-color: var(--bg-color);
   background-image: var(--bg-image);
   min-height: 100vh;
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   transition: background-color 0.4s ease, color 0.4s ease;
@@ -53,6 +59,7 @@ body {
 .navbar {
   display: flex; justify-content: space-between; align-items: center;
   padding: 1rem 2rem; 
+  width: 100%; /* FIX: Forces navbar to span exactly 100% */
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
   position: sticky; top: 0; z-index: 1000; 
@@ -63,7 +70,7 @@ body {
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .logo img { 
   border-radius: 8px;
-  filter: drop-shadow(0 0 10px var(--accent-color)); /* GLOW EFFECT */
+  filter: drop-shadow(0 0 10px var(--accent-color)); 
   transition: filter 0.3s;
 }
 .logo span { 
@@ -168,10 +175,9 @@ input:checked + .slider::before { transform: translateX(26px); }
 .domains-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; }
 .team-blur-container { display: flex; flex-direction: column; gap: 2rem; }
 
-/* FIXED: Equal tile sizes via flex/min-height */
 .domains-grid .glow-card {
   flex: 1 1 300px; max-width: 350px;
-  min-height: 320px; /* Forces equal heights */
+  min-height: 320px; 
   display: flex; flex-direction: column; justify-content: center; align-items: center;
 }
 
@@ -183,7 +189,6 @@ input:checked + .slider::before { transform: translateX(26px); }
 }
 .glow-card > * { position: relative; z-index: 3; }
 
-/* The Rotating Gradient Border */
 .glow-card::before {
   content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
   background: conic-gradient(from 0deg, transparent 70%, var(--accent-color) 80%, #f472b6 100%);
@@ -195,7 +200,6 @@ input:checked + .slider::before { transform: translateX(26px); }
   z-index: 2; opacity: 0; transition: opacity 0.4s ease;
 }
 
-/* FIXED BUG: Precision hover logic using :has() */
 .domains-grid:has(.glow-card:hover) .glow-card:not(:hover),
 .team-blur-container:has(.glow-card:hover) .glow-card:not(:hover) {
   opacity: 0.5; transform: scale(0.98); filter: blur(3px);
@@ -261,6 +265,10 @@ input:checked + .slider::before { transform: translateX(26px); }
    8. MOBILE OPTIMIZATION
    ========================================= */
 @media (max-width: 768px) {
+  /* FIX: Adjusted Mobile Padding to prevent layout squeezing */
+  .navbar { padding: 1rem 1.2rem; }
+  .logo span { font-size: 1.3rem; }
+
   .hamburger { display: block; z-index: 1001; transition: transform 0.4s ease; }
   .nav-links {
     display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%;
@@ -270,16 +278,19 @@ input:checked + .slider::before { transform: translateX(26px); }
   }
   .nav-links.active { max-height: 400px; opacity: 1; padding: 1.5rem; }
   .nav-tile { text-align: center; padding: 12px; margin-bottom: 5px; font-size: 1.2rem; }
+  .theme-switch { margin: 10px auto; display: flex; justify-content: center; } /* Center switch on mobile */
+  
   .hero h1 { font-size: 2.5rem; }
   
   .glow-card, .schedule-card { transition: all 0.5s ease; opacity: 0.7; transform: scale(0.95); }
   .glow-card.mobile-focus, .schedule-card.mobile-focus { opacity: 1; transform: scale(1.03); border-color: var(--accent-color); box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3); z-index: 10; }
+  
   .footer-content { flex-direction: column; text-align: center; }
   .footer-socials { justify-content: center; }
   .footer-col a:hover { transform: none; }
 }
 
-/* Event & Team Extas */
+/* Event & Team Extras */
 .schedule-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-bottom: 3rem; }
 .schedule-card .time { color: var(--accent-color); font-weight: 700; font-size: 1.1rem; }
 .domain-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); padding-bottom: 1rem; margin-bottom: 1.5rem; }
